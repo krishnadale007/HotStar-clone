@@ -56,8 +56,8 @@ pipeline {
                 script {
                     withDockerRegistry(credentialsId: 'a2eda937-40ba-4e5c-99db-5e70a09e16ac', toolName: 'docker') {
                         sh "docker build -t hotstar ."
-                        sh "docker tag hotstar krishnadale/test:latest"
-                        sh "docker push krishnadale/test:latest"
+                        sh "docker tag hotstar krishnadale/hotstar:latest"
+                        sh "docker push krishnadale/hotstar:latest"
                     }
                 }
             }
@@ -66,14 +66,14 @@ pipeline {
         stage('Trivy Image Scan') {
             steps {
                 script {
-                    sh 'trivy image --severity HIGH,CRITICAL gashok13193/test:latest --format table --output trivy-image-report.txt'
+                    sh 'trivy image --severity HIGH,CRITICAL krishnadale/hotstar:latest --format table --output trivy-image-report.txt'
                 }
             }
         }
 
         stage('Deploy Docker') {
             steps {
-                sh "docker run --rm -d --name hotstar -p ${PORT}:3000 gashok13193/test:latest"
+                sh "docker run --rm -d --name hotstar -p ${PORT}:3000 krishnadale/hotstar:latest"
             }
         }
     }
