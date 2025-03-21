@@ -54,7 +54,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: '30a2e9b9-a57c-417a-8e14-dd7e74745fb9', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'a2eda937-40ba-4e5c-99db-5e70a09e16ac', toolName: 'docker') {
                         sh "docker build -t hotstar ."
                         sh "docker tag hotstar krishnadale/test:latest"
                         sh "docker push krishnadale/test:latest"
