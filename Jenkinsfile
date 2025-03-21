@@ -21,8 +21,8 @@ pipeline {
                 withSonarQubeEnv('Sonarqube') {
                     sh '''
                     $SCANNER_HOME/bin/sonar-scanner \
-                    -Dsonar.projectName=Hotstar \
-                    -Dsonar.projectKey=Hotstar \
+                    -Dsonar.projectName=Hotstar-clone \
+                    -Dsonar.projectKey=Hotstar-clone \
                     -Dsonar.projectVersion=1.0 \
                     -Dsonar.sources=.
                     '''
