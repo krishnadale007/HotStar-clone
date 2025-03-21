@@ -6,13 +6,13 @@ pipeline {
     }
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
-        PORT = '3000'
+        PORT = '9000'
     }
 
     stages {
         stage('Git checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/gashok13193/HotStar-clone.git'
+                git branch: 'main', url: 'https://github.com/krishnadale007/HotStar-clone.git'
             }
         }
 
