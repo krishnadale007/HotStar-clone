@@ -16,4 +16,4 @@ spec:
       - name: hotstar
         image: krishnadale/hotstar:latest
         ports:
-        - containerPort: 9000
+        - containerPort: 3000
